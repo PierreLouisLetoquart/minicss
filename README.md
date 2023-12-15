@@ -1,3 +1,5 @@
+> Ultra beta version (e.g. simple POC of the algo)
+
 # CSS Minifier
 
 CSS Minifier is a simple Rust program that takes a CSS file as input and minifies it.
