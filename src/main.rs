@@ -2,6 +2,10 @@ use std::fs::read_to_string;
 use std::io::{self, Write};
 use std::path::{Path, PathBuf};
 
+// TODO: use cli crate to parse args (clap)
+// TODO: find solution to use the crate with cli and without cli (e.g. cargo run -- --whatever)
+// TODO: separate the code in modules (e.g. css file processing, file writing, etc.) in src/lib.rs
+// and use it in main.rs (for error handling, etc.)
 fn main() {
     // get args, first arg is the path to the css file, second arg is the path to the target file (optional)
     let args: Vec<String> = std::env::args().collect();
@@ -49,6 +53,7 @@ fn process_file_content(file_content: &str) -> String {
     let mut is_multiline_comment = false;
 
     for line in file_content.lines() {
+        // TODO: look if only trim is enough, the process will be after all if instructions
         let line = process_line(line.trim());
 
         if line.is_empty() {
@@ -75,6 +80,8 @@ fn process_file_content(file_content: &str) -> String {
             continue;
         }
 
+        // TODO: process line content (remove spaces, shorten colors, etc.)
+
         new_content.push_str(&line);
     }
 
@@ -82,10 +89,19 @@ fn process_file_content(file_content: &str) -> String {
 }
 
 fn process_line(line: &str) -> String {
+    // TODO: better processing, meaning:
+    //  - remove spaces before and after the line str 
+    //  - try shortening the colors (e.g. #ffffff -> #fff)
+    //  - try shertening the properties (e.g. margin: 0px -> margin: 0)
+    //  - verify if the line contains a comment and remove it
+    //  - not shorten spaces between properties without coma (e.g. margin: 0px 0px 0px 0px -> margin: 0 0 0 0)
+
     // remove spaces inside the line str
     line.replace(" ", "")
 }
 
+// TODO: rewrite the function in a more functional + reliable way
+// TODO: add a test for the overwrite_file function
 fn overwrite_file(
     file_path: &PathBuf,
     new_content: &str,
@@ -145,4 +161,14 @@ mod tests {
         let result = process_file_content(file_content);
         assert_eq!(result, expected);
     }
+
+    // TODO: add tests for color shortening
+    // TODO: add tests for property shortening
+    // TODO: add tests for comment removal
+    // TODO: add tests for space removal
+    // TODO: add tests for semicolon removal
+    // TODO: add tests for space between properties without coma
+    // TODO: add tests for overwrite_file
+    //
+    // TODO: add tests for the cli (E2E tests)
 }
