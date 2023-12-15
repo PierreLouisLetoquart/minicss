@@ -24,7 +24,5 @@ To use the CSS Minifier, run the program with the path to your CSS file as an ar
 You can add a target path as second argument (optional) if you don't want to overwrite the og stylesheet.
 
 ```bash
-git clone url name
-cd name
 cargo run -- style.css (target.css)
 ```
