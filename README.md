@@ -1,5 +1,3 @@
-> Ultra beta version (e.g. simple POC of the algo)
-
 # CSS Minifier
 
 CSS Minifier is a simple Rust program that takes a CSS file as input and minifies it.
@@ -13,11 +11,12 @@ The objective of this algorithm is to produce a single minified string represent
 
 ## To-Do List
 
-- [ ] Create a separate library crate.
-- [ ] Implement improved error handling.
+- [x] Create a separate library crate.
+- [x] Implement improved error handling.
 - [ ] Add support for nesting in the CSS.
 - [ ] Enhance testing procedures.
 - [ ] Minimize variable names for a more compact output.
+- [ ] Add E2E tests + better unit tests (e.g. testing bizarre css inputs)
 
 ## Usage
 
