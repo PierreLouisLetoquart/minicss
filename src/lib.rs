@@ -1,9 +1,11 @@
 use std::collections::HashSet;
 
+// change to throw error and exit in main
 pub fn source_exists(source: &str) -> bool {
     std::path::Path::new(source).exists()
 }
 
+// Need a much more cleaner func but thats fine for tests :')
 pub fn is_unnecessary(prev: char, c: char) -> bool {
     let it_is: HashSet<(char, char)> = [
         (';', ' '),
@@ -71,6 +73,7 @@ pub fn minify_content(content: &str) -> String {
     minified.into_iter().collect()
 }
 
+// Need more more more tests
 #[cfg(test)]
 mod tests {
     use super::*;
