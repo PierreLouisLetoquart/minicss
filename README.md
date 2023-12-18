@@ -11,6 +11,8 @@ The objective of this algorithm is to produce a single minified string represent
 
 ## To-Do List
 
+In beta, the global behaviour isn't the final one !!
+
 - [x] Create a separate library crate.
 - [x] Implement improved error handling.
 - [ ] Add support for nesting in the CSS.
@@ -25,5 +27,7 @@ To use the CSS Minifier, run the program with the path to your CSS file as an ar
 You can add a target path as second argument (optional) if you don't want to overwrite the og stylesheet.
 
 ```bash
-cargo run -- style.css (target.css)
+cargo run # -> to print the help
+
+cargo run -- -s data/style.css -t data/target.css
 ```
