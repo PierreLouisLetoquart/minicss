@@ -5,7 +5,7 @@ pub fn source_exists(source: &str) -> bool {
 }
 
 pub fn is_unnecessary(prev: char, c: char) -> bool {
-    let unnecessary_combinations: HashSet<(char, char)> = [
+    let it_is: HashSet<(char, char)> = [
         (';', ' '),
         ('{', ' '),
         ('}', ' '),
@@ -34,7 +34,7 @@ pub fn is_unnecessary(prev: char, c: char) -> bool {
     .cloned()
     .collect();
 
-    unnecessary_combinations.contains(&(prev, c))
+    it_is.contains(&(prev, c))
 }
 
 pub fn minify_content(content: &str) -> String {
@@ -69,4 +69,47 @@ pub fn minify_content(content: &str) -> String {
     }
 
     minified.into_iter().collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_source_exists() {
+        assert_eq!(source_exists("src/lib.rs"), true);
+        assert_eq!(source_exists("src/lib2.rs"), false);
+    }
+
+    #[test]
+    fn test_is_unnecessary() {
+        assert_eq!(is_unnecessary(' ', ' '), true);
+        assert_eq!(is_unnecessary(' ', ';'), false);
+        assert_eq!(is_unnecessary(' ', '{'), false);
+        assert_eq!(is_unnecessary('%', ' '), true);
+    }
+
+    #[test]
+    fn test_minify_content() {
+        assert_eq!(
+            minify_content(
+                r#"
+                /*
+                 * This is a multi-line comment.
+                 */
+                
+                * {
+                  margin: 0;
+                }
+
+                html,
+                body {
+                  /* height: 100%; */
+                  height: 100%;
+                }
+            "#
+            ),
+            r#"*{margin:0;}html,body {height:100%;}"#
+        );
+    }
 }
