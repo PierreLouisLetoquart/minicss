@@ -1,3 +1,7 @@
-pub mod token;
 pub mod error;
+pub mod lexer;
+pub mod token;
 
+pub use error::LexError;
+pub use lexer::Lexer;
+pub use token::{Token, TokenKind};
