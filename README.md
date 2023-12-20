@@ -11,13 +11,6 @@ This project will be a part of Mini WEB, a project containing web related tools.
 - [ ] Minifier
 - we'll see...
 
-## TODOs
-
-- [ ] move the main code into examples/lexer.rs --> cargo run --example lexer
-- [ ] add unit tests #[cfg(test)] in all src/ files
-- [ ] add missing tokens
-- [ ] find alternatives for .clone() --> lighter one
-
 ## Resources
 
 > wip, actually reading (trying to at least :'))
