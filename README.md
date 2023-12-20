@@ -10,7 +10,6 @@ This project will be a part of Mini WEB, a project containing web related tools.
 - [ ] CSSOM
 - [ ] Parser
 - [ ] Minifier
-- we'll see...
 
 ## Resources
 
