@@ -7,6 +7,7 @@ This project will be a part of Mini WEB, a project containing web related tools.
 ## Objectives
 
 - [x] Lexer (POC + basic impl) -> improve later
+- [ ] CSSOM
 - [ ] Parser
 - [ ] Minifier
 - we'll see...
