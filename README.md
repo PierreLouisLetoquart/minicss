@@ -1,33 +1,21 @@
-# CSS Minifier
+# Mini CSS
 
-CSS Minifier is a simple Rust program that takes a CSS file as input and minifies it.
+Mini CSS is a Rust crate designed for all kind off CSS manipulation.
 
-The objective of this algorithm is to produce a single minified string representing your stylesheet.
+This project will be a part of Mini WEB, a project containing web related tools.
 
-## Features
+## Objectives
 
-- Removes unnecessary semicolons, spaces, and line breaks.
-- Eliminates all comments from the CSS file.
+- Lexer
+- Parser
+- Minifier
+- we'll see...
 
-## To-Do List
+## Resources
 
-In beta, the global behaviour isn't the final one !!
+> wip, actually reading (trying to at least :'))
 
-- [x] Create a separate library crate.
-- [x] Implement improved error handling.
-- [ ] Add support for nesting in the CSS.
-- [ ] Enhance testing procedures.
-- [ ] Minimize variable names for a more compact output.
-- [ ] Add E2E tests + better unit tests (e.g. testing bizarre css inputs)
+- [css2](https://www.w3.org/TR/CSS22/css2.pdf)
+- [css3](https://drafts.csswg.org/css-syntax/)
+- [css synthax](https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax)
 
-## Usage
-
-To use the CSS Minifier, run the program with the path to your CSS file as an argument.
-
-You can add a target path as second argument (optional) if you don't want to overwrite the og stylesheet.
-
-```bash
-cargo run # -> to print the help
-
-cargo run -- -s data/style.css -t data/target.css
-```
